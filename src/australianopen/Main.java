@@ -8,7 +8,7 @@ public class Main
     GameController gc = GameController.getInstance();
     SaveLoad sl = SaveLoad.getInstance();
     
-    public static void main(String[] args) throws IOException
+    public static void main(String[] args) throws IOException, ClassNotFoundException
     {
        Main main = new Main();
        main.run();
@@ -19,12 +19,12 @@ public class Main
        System.out.println(lines);
     }
     
-    public void run() throws IOException
+    public void run() throws IOException, ClassNotFoundException
     {
         int choice;
        
         lines = sl.loadToString("menu.txt");
-        
+        sl.loadPlayers();
         
         for(;;)
         {
@@ -49,7 +49,7 @@ public class Main
                 case 6:
                     System.out.println("Enter the ID of your player");
                     choice = sc.nextInt();
-                    gc.searchPlayer(choice);
+                    System.out.println(gc.searchPlayer(choice));
                     break;
                 case 7:
                     break;
