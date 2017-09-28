@@ -11,6 +11,7 @@ public class Event implements Serializable
   private Boolean finished = false;
   private static int idCount = 0;
   private int gameID;
+  GameController gc = GameController.getInstance();
   
   public Event(Location location, Date date)
   {
@@ -29,6 +30,10 @@ public class Event implements Serializable
   
   public void addPlayer()
   {
+      for(int i = 0; i < gc.getPlayers().size();i++)
+      {
+           
+      }
       //When adding participant, force choose for teamside
       //Make sure only max 2 players in each teamside
       //Make sure participant is not in any other games currently active.
@@ -40,14 +45,7 @@ public class Event implements Serializable
       this.finished = true;
   }
   
-  public Boolean checkForDuplicates(Player player)
-  {
-      //Player can not exist in multiple games
-      //Loop through all current games with winner = false
-      //Check for playerID
-      //if player id is not here
-         return true;
-  }
+  
   
   public void playGame()
   {

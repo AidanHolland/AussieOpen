@@ -8,7 +8,8 @@ public class Player implements Serializable
     private int age;
     private char gender;
     String country;
-    private int id;
+    static int idCount;
+    private int pid;
     
     public Player(){}
     
@@ -18,7 +19,9 @@ public class Player implements Serializable
         this.lastName = lastName;
         this.age = age;
         this.gender = gender;
-        this.country = country;  
+        this.country = country; 
+        idCount++;
+        pid = idCount;
     }
     
     
@@ -29,7 +32,7 @@ public class Player implements Serializable
     
     public int getID()
     {
-        return id;
+        return pid;
     }
     
     public String getCountry()

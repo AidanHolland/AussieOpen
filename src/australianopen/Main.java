@@ -52,6 +52,7 @@ public class Main
                     System.out.println(gc.searchPlayer(choice));
                     break;
                 case 7:
+                    sl.loadToString("winners.txt");
                     break;
                 case 8:
                     return;

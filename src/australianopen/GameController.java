@@ -66,9 +66,9 @@ public class GameController
     
     
     
-    public void createGame()
+    public void populateGame()
     {
-    
+        //For each game
     }
     
     public void createPlayer()
@@ -93,10 +93,8 @@ public class GameController
         country = sc.nextLine();
        
         
-        for(int i = 0; i < players.size(); i++)
-        {
-            
-        }
+        players.add(new Player(firstName, lastName, age, gender, country));
+        savePlayers();
 
         System.out.println("Player created!");
     }
@@ -111,6 +109,22 @@ public class GameController
     public void loadPlayers() throws IOException, ClassNotFoundException
     {
         players = sl.loadPlayers();
+    }
+    
+    public void listPlayers()
+    {
+        for(int i = 0; i < players.size(); i++)
+        {
+            System.out.println(i + ": " + players.get(i).getName());
+        }
+    }
+    
+    public Player selectPlayer()
+    {
+        int i;
+        Scanner sd = new Scanner(System.in);
+        i = sd.nextInt();
+        return players.get(i);
     }
     
     public String searchPlayer(int pid)

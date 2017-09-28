@@ -99,6 +99,7 @@ public class SaveLoad
         InputStream file = new FileInputStream(finder);
         InputStream buffer = new BufferedInputStream(file);
         ObjectInput input = new ObjectInputStream(buffer);
+        int tempID = 0;
         
         loadedList = (ArrayList<Player>)input.readObject();
         ArrayList<Player> currentList = gc.getPlayers();
@@ -121,6 +122,16 @@ public class SaveLoad
         {
             currentList.add(loadedList.get(f));
         }
+        for(int k = 0; k < currentList.size(); k++)
+        {
+            if(currentList.get(k).getID() > tempID)
+            {
+                tempID = currentList.get(k).getID();
+            }
+        }
+        
+        
+        Player.idCount = tempID;
             
         return currentList;
     }
